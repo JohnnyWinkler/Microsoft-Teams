@@ -8,3 +8,5 @@ Set-CsOnlineApplicationInstance -Identity [ressource]@[initialdomain].onmicrosof
 
 # Telefonnummer mit User verknüpfen
 Set-CsUser -identity “[UPN]” -EnterpriseVoiceEnabled $true -HostedVoicemail $true -OnPremlineURI tel:+41xxxxxxxxx
+
+Grant-CsTeamsUpgradePolicy -Identity [E-Mail User] -PolicyName UpgradeToTeams
