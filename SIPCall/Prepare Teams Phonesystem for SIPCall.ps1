@@ -4,10 +4,10 @@ $session = New-CsOnlineSession -Credential $O365cred
 Import-PsSession $session
 
 # Aktivieren der Domäne für die Verwendung von Telefonie (Bei SIPCall der User "domainactivation")
-Set-CsUser -identity “[UPN]” -EnterpriseVoiceEnabled $true
+Set-CsUser -identity “[UserPrincipalName]” -EnterpriseVoiceEnabled $true
 
 # Prüfen ob der User bereits für Teams registriert ist (es muss eine Ausgabe wie z.B. «RegistrarPool: sippool123456.infra.lync.com» erscheinen):
-Get-CsOnlineUser -Identity “[UPN]]” | fl RegistrarPool
+Get-CsOnlineUser -Identity “[UserPrincipalName]]” | fl RegistrarPool
 
 # Jetzt kann gemäss dem PowerShell Script "Bind User with Phonenumber" weitergefahren werden
 
@@ -21,4 +21,4 @@ New-CsOnlineVoiceRoute -Identity “sipcall” -NumberPattern “.*” -OnlinePs
 New-CsOnlineVoiceRoutingPolicy “sipcall” -OnlinePstnUsages “sipcall”
 
 # Dem User die Berechtigung für die Richtlinie erteilen
-Grant-CsOnlineVoiceRoutingPolicy -Identity “[UPN]” -PolicyName “sipcall”
+Grant-CsOnlineVoiceRoutingPolicy -Identity “[UserPrincipalName]” -PolicyName “sipcall”
