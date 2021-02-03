@@ -4,7 +4,7 @@ $session = New-CsOnlineSession -Credential $O365cred
 Import-PsSession $session
 
 # Verknüpfung mit Ressource aufheben
-Set-CsOnlineApplicationInstance -Identity [UPN] -OnpremPhoneNumber $null
+Set-CsOnlineApplicationInstance -Identity [UserPrincipalName] -OnpremPhoneNumber $null
 
 # Verknüpfung mit Usern aufheben
-Set-CsUser -identity “[UPN]” -EnterpriseVoiceEnabled $false -HostedVoicemail $false -OnPremlineURI $null
+Set-CsUser -identity “[UserPrincipalName]” -EnterpriseVoiceEnabled $false -HostedVoicemail $false -OnPremlineURI $null
