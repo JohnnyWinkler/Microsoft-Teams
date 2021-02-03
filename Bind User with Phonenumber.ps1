@@ -4,9 +4,9 @@ $session = New-CsOnlineSession -Credential $O365cred
 Import-PsSession $session
 
 # Telefonnummer mit Ressource verknüpfen
-Set-CsOnlineApplicationInstance -Identity [UPN] -OnpremPhoneNumber +41xxxxxxxxx
+Set-CsOnlineApplicationInstance -Identity [UserPrincipalName] -OnpremPhoneNumber +41xxxxxxxxx
 
 # Telefonnummer mit User verknüpfen
-Set-CsUser -identity “[UPN]” -EnterpriseVoiceEnabled $true -HostedVoicemail $true -OnPremlineURI tel:+41xxxxxxxxx
+Set-CsUser -identity “[UserPrincipalName]” -EnterpriseVoiceEnabled $true -HostedVoicemail $true -OnPremlineURI tel:+41xxxxxxxxx
 
-Grant-CsTeamsUpgradePolicy -Identity [E-Mail User] -PolicyName UpgradeToTeams
+Grant-CsTeamsUpgradePolicy -Identity [UserPrincipalName] -PolicyName UpgradeToTeams
