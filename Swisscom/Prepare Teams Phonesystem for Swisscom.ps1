@@ -9,4 +9,4 @@ New-CsOnlineVoiceRoutingPolicy "SwisscomET4T" -OnlinePstnUsages "SwisscomET4T"
 
 # Gemäss Swisscom rund 15 Minuten warten. Anschliessend kann gemäss dem PowerShell Script "Bind User with Phonenumber" weitergefahren werden
 
-Grant-CsOnlineVoiceRoutingPolicy -Identity [E-Mail User] -PolicyName "SwisscomET4T"
+Grant-CsOnlineVoiceRoutingPolicy -Identity [UserPrincipalName] -PolicyName "SwisscomET4T"
